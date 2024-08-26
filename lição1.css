@@ -1,0 +1,64 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte alternativa */
+    margin: 0;
+    padding: 0;
+    background-image: url('https://nutrisoft.com.br/wp-content/uploads/2016/03/como-se-pesar.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center center; /* Garante que a imagem fique centralizada */
+    background-attachment: fixed; /* Mantém a imagem fixa enquanto o conteúdo rola */
+    color: #333;
+    height: 100vh; /* Garante que o corpo ocupe toda a altura da tela */
+    display: flex;
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff; /* Cor do texto em contraste com o fundo */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+    border: 1px solid #ff0000;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%; /* Garante que o formulário ocupe a largura disponível */
+    background: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 12px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #b30000;
+}
+
+#resultado {
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+}
