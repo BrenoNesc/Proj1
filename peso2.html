@@ -1,0 +1,70 @@
+<!DOCTYPE htm<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Peso Ideal</title>
+    <script>
+        function calcularPesoIdeal() {
+            const nome = document.getElementById('nome').value; 
+            const altura = parseFloat(document.getElementById('altura').value);
+            const sexo = document.getElementById('sexo').value; 
+
+            let pesoIdeal;
+
+            if (sexo === 'M') {
+                pesoIdeal = (72.7 * altura) - 58;
+            } else if (sexo === 'F') {
+                pesoIdeal = (62.1 * altura) - 44.7;
+            }
+
+            const resultado = { 
+                nome: nome,
+                pesoIdeal: pesoIdeal.toFixed(2)
+            };
+
+            localStorage.setItem('dadosPesoIdeal', JSON.stringify(resultado));
+            document.getElementById('resultados').innerHTML = `Peso Ideal de ${nome}: ${pesoIdeal.toFixed(2)} kg`;
+        }
+
+        function consultarDados() {
+            const dadosArmazenados = JSON.parse(localStorage.getItem('dadosPesoIdeal'));
+
+            if (!dadosArmazenados) {
+                document.getElementById('resultados').innerHTML = 'Nenhum dado armazenado.';
+                return;
+            }
+
+            const resultadoHTML = `<ul><li>${dadosArmazenados.nome}: ${dadosArmazenados.pesoIdeal} kg</li></ul>`;
+            document.getElementById('resultados').innerHTML = resultadoHTML;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Peso Ideal</h1>
+    
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+    
+    <br>
+    
+    <label for="altura">Altura (em metros):</label>
+    <input type="number" step="0.01" id="altura" name="altura" required>
+    
+    <br>
+    
+    <label for="sexo">Sexo:</label>
+    <select id="sexo" name="sexo">
+        <option value="M">Masculino</option>
+        <option value="F">Feminino</option>
+    </select>
+    
+    <br>
+    
+    <button onclick="calcularPesoIdeal()">Calcular Peso Ideal</button>
+    <button onclick="consultarDados()">Consultar Dados Armazenados</button>
+    
+    <div id="resultados"></div>
+    <script src="consultaPesoIdeal.js"></script>
+</body>
+</html>
